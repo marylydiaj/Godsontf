@@ -14,7 +14,7 @@ pipeline {
         }
         stage('git clone') {
             steps {
-                sh 'sudo rm -r *;sudo git clone https://github.com/GodsonSibreyan/Godsontf.git'
+                sh 'sudo /home/godsmahi/rm -r *;sudo /home/godsmahi/git clone https://github.com/GodsonSibreyan/Godsontf.git'
             }
         }
         stage('terraform init') {
@@ -26,6 +26,18 @@ pipeline {
             steps {
                 sh 'ls ./Godsontf; sudo /home/godsmahi/terraform plan ./Godsontf'
             }
+        }
+        stage('terraform apply') {
+            steps {
+                sh 'sudo /home/godsmahi/terraform apply ./Godsontf'
+            }
+        }
+        stage('Approval') {
+            steps {
+                script {
+                      def userInput = input(id: 'yes')
+               }
+           }
         }
         stage('terraform ended') {
             steps {
