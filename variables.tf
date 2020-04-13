@@ -1,12 +1,12 @@
 ###### Variables ##########
 
 variable "access_key" {
-    description = "Access Key"
+    description = "AccessKey"
     default     = "access"
 }
 
 variable "secret_key" {
-    description = "Secret key"
+    description = "Secretkey"
     default     = "secret"
 }
 
