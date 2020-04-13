@@ -11,7 +11,7 @@ pipeline {
                 sh 'echo "Started...!" '
             }
         }
-        stage('terraform started') {
+        stage('terraform clone') {
             steps {
                 sh 'git clone https://github.com/GodsonSibreyan/Godsontf.git'
             }
