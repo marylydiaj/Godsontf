@@ -19,8 +19,8 @@ pipeline {
         stage('key'){
             steps {
                 sh '''
-                  sed -e 's/$access_key/access_key/g' /var/lib/jenkins/workspace/terragods/variables.tf
-                  sed -e 's/$secret_key/secret_key/g' /var/lib/jenkins/workspace/terragods/variables.tf
+                  sed -e 's/$access_key/access/g' /var/lib/jenkins/workspace/terragods/variables.tf
+                  sed -e 's/$secret_key/secret/g' /var/lib/jenkins/workspace/terragods/variables.tf
                   '''
                   }
             }
