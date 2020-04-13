@@ -14,7 +14,7 @@ pipeline {
         }
         stage('git clone') {
             steps {
-                sh '/home/godsmahi/rm -r *; /home/godsmahi/git clone https://github.com/GodsonSibreyan/Godsontf.git'
+                sh '/home/godsmahi/git clone https://github.com/GodsonSibreyan/Godsontf.git'
             }
         }
         stage('terraform init') {
