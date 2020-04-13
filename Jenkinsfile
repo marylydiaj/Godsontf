@@ -14,22 +14,22 @@ pipeline {
         }
         stage('git clone') {
             steps {
-                sh 'sudo git clone https://github.com/GodsonSibreyan/Godsontf.git'
+                sh 'git clone https://github.com/GodsonSibreyan/Godsontf.git'
             }
         }
         stage('terraform init') {
             steps {
-                sh 'sudo terraform init ./Godsontf'
+                sh 'terraform init ./Godsontf'
             }
         }
         stage('terraform plan') {
             steps {
-                sh 'ls ./Godsontf; sudo terraform plan ./Godsontf'
+                sh 'ls ./Godsontf;terraform plan ./Godsontf'
             }
         }
         stage('terraform apply') {
             steps {
-                sh 'sudo terraform apply -auto-approval./Godsontf'
+                sh 'terraform apply -auto-approval./Godsontf'
             }
         }
         stage('terraform ended') {
