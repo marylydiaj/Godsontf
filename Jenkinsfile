@@ -29,15 +29,8 @@ pipeline {
         }
         stage('terraform apply') {
             steps {
-                sh 'sudo terraform apply ./Godsontf'
+                sh 'sudo terraform apply -auto-approval./Godsontf'
             }
-        }
-        stage('Approval') {
-            steps {
-                script {
-                      def userInput = input(id: 'yes')
-               }
-           }
         }
         stage('terraform ended') {
             steps {
