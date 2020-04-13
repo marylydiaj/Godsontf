@@ -1,7 +1,7 @@
 #### Provider ######
 
 provider "aws" {
-  access_key = var.access
-  secret_key = var.secret
+  access = var.access_key
+  secret = var.secret_key
   region = var.region
 }
