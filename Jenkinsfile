@@ -6,25 +6,29 @@ pipeline {
     }
 
     stages {
-
         stage('terraform started') {
             steps {
                 sh 'echo "Started...!" '
             }
         }
+        stage('terraform started') {
+            steps {
+                sh 'git clone https://github.com/GodsonSibreyan/Godsontf.git'
+            }
+        }
         stage('terraform init') {
             steps {
-                sh 'terraform init'
+                sh 'terraform init ./Godsontf'
             }
         }
         stage('terraform plan') {
             steps {
-                sh 'terraform plan'
+                sh 'terraform plan ./Godsontf'
             }
         }
         stage('terraform apply') {
             steps {
-                sh 'terraform apply -auto-approval'
+                sh 'terraform apply -auto-approval ./Godsontf'
             }
         }
         stage('terraform ended') {
