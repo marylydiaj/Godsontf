@@ -17,13 +17,6 @@ pipeline {
                 sh '/home/godsmahi/rm -r *; /home/godsmahi/git clone https://github.com/GodsonSibreyan/Godsontf.git'
             }
         }
-        stage('Parameter') {
-            steps {
-                script {
-                    sed 's/default     = "t2.micro"/default     = "echo"$instance_type""/g' /home/godsmahi/Godsontf/variables.tf
-                }
-            }
-        }
         stage('terraform init') {
             steps {
                 sh '/home/godsmahi/terraform init ./Godsontf'
