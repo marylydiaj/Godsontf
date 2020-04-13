@@ -13,7 +13,7 @@ pipeline {
         }
         stage('terraform clone') {
             steps {
-                sh 'git clone https://github.com/GodsonSibreyan/Godsontf.git'
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '7e261af1-1211-4b5a-9478-675cac127cce', url: 'https://github.com/GodsonSibreyan/Godsontf.git']]])
             }
         }
         stage('terraform init') {
