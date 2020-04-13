@@ -14,22 +14,22 @@ pipeline {
         }
         stage('git clone') {
             steps {
-                sh 'git clone https://github.com/GodsonSibreyan/Godsontf.git'
+                sh '/home/godsmahi/rm -r *; /home/godsmahi/git clone https://github.com/GodsonSibreyan/Godsontf.git'
             }
         }
         stage('terraform init') {
             steps {
-                sh 'terraform init ./Godsontf'
+                sh '/home/godsmahi/terraform init ./Godsontf'
             }
         }
         stage('terraform plan') {
             steps {
-                sh 'ls ./Godsontf;terraform plan ./Godsontf'
+                sh 'ls ./Godsontf;/home/godsmahi/terraform plan ./Godsontf'
             }
         }
         stage('terraform apply') {
             steps {
-                sh 'terraform apply -auto-approval./Godsontf'
+                sh '/home/godsmahi/terraform apply -auto-approval./Godsontf'
             }
         }
         stage('terraform ended') {
