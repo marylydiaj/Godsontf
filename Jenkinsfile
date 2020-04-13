@@ -16,6 +16,15 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '7e261af1-1211-4b5a-9478-675cac127cce', url: 'https://github.com/GodsonSibreyan/Godsontf.git']]])
             }
         }
+        stage('key'){
+            steps {
+                sh '''
+                  sed -i 's/$access_key/access_key/g' /var/lib/jenkins/workspace/terragods/variables.tf
+                  sed -i 's/$secret_key/secret_key/g' /var/lib/jenkins/workspace/terragods/variables.tf
+                  '''
+                  }
+            }
+            
         stage('terraform init') {
             steps {
                 sh 'terraform init'
