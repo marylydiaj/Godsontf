@@ -2,12 +2,12 @@
 
 variable "access_key" {
     description = "Access Key"
-    default     = "access_key"
+    default     = "access"
 }
 
 variable "secret_key" {
     description = "Secret key"
-    default     = "secret_key"
+    default     = "secret"
 }
 
 variable "region" {
