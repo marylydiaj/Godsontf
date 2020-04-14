@@ -100,7 +100,7 @@ resource "aws_security_group" "sg" {
 #Creating EBS volume 
 
 resource "aws_ebs_volume" "data-vol" {
- availability_zone = "us-west-1a"
+ availability_zone = "us-west-2a"
  size = 10
  tags = {
         Name = "data-volume"
