@@ -8,8 +8,12 @@ resource "aws_instance" "Dijango" {
  user_data                   = data.template_file.dijango.rendered
  vpc_security_group_ids      = [aws_security_group.sg.id]
  subnet_id                   = aws_subnet.public_subnet.id
- associate_public_ip_address = true
-
+ associate_public_ip_address = true 
+ root_block_device {
+   volume_type           = "gp2"
+   volume_size           = "10"
+   delete_on_termination = "true"
+ }
  tags = {
    Name        = "Dijango"
    }
@@ -96,23 +100,5 @@ resource "aws_security_group" "sg" {
  tags = {
    Name        = "gods-sg"
   }
-}
-#Creating EBS volume 
-
-resource "aws_ebs_volume" "data-vol" {
- availability_zone = "us-east-2a"
- size = 10
- tags = {
-        Name = "data-volume"
- }
-
-}
-
-#Attaching volume with Instance
-
-resource "aws_volume_attachment" "dijango-vol" {
- device_name = "/dev/sdc"
- volume_id = aws_ebs_volume.data-vol.id
- instance_id = aws_instance.Dijango.id
 }
 
