@@ -18,8 +18,8 @@ pipeline {
         }
         stage('key'){
             steps {
-                sh label: '', script: ''' sed -i \'s/user/$user/g\' /var/lib/jenkins/workspace/terragods/variables.tf
-sed -i \'s/password/$password/g\' /var/lib/jenkins/workspace/terragods/variables.tf'''
+                sh label: '', script: ''' sed -i \'s/user/echo "$user"/g\' /var/lib/jenkins/workspace/terragods/variables.tf
+sed -i \'s/password/echo "$password"/g\' /var/lib/jenkins/workspace/terragods/variables.tf'''
                   }
             }
             
