@@ -97,3 +97,22 @@ resource "aws_security_group" "sg" {
    Name        = "gods-sg"
   }
 }
+#Creating EBS volume 
+
+resource "aws_ebs_volume" "data-vol" {
+ availability_zone = "us-west-1a"
+ size = 10
+ tags = {
+        Name = "data-volume"
+ }
+
+}
+
+#Attaching volume with Instance
+
+resource "aws_volume_attachment" "dijango-vol" {
+ device_name = "/dev/sdc"
+ volume_id = "aws_ebs_volume.data-vol.id"
+ instance_id = "aws_instance.Dijango.id"
+}
+
