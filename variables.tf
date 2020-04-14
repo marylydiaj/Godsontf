@@ -1,13 +1,13 @@
 ###### Variables ##########
 
-variable "access_key" {
+variable "active_key" {
     description = "AccessKey"
-    default     = "active"
+    default     = "user"
 }
 
-variable "secret_key" {
+variable "security_key" {
     description = "Secretkey"
-    default     = "security"
+    default     = "password"
 }
 
 variable "region" {
