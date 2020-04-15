@@ -16,7 +16,7 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '7e261af1-1211-4b5a-9478-675cac127cce', url: 'https://github.com/GodsonSibreyan/Godsontf.git']]])
             }
         }
-        stage('key'){
+        stage('Parameters'){
             steps {
                 sh label: '', script: ''' sed -i \"s/user/$access_key/g\'" /var/lib/jenkins/workspace/terragods/variables.tf
 sed -i \"s/password/$secret_key/g\" /var/lib/jenkins/workspace/terragods/variables.tf
