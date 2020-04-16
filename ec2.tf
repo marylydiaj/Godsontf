@@ -132,3 +132,6 @@ output "private_ip" {
   description = "List of private IP addresses assigned to the instances"
   value       = aws_instance.Dijango.*.private_ip
 }
+provisioner "local-exec" {
+    command = "echo ${aws_instance.Dijango.public_ip} >> /var/lib/jenkins/workspace/terragods/publicip"
+}
