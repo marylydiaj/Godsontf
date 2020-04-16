@@ -64,7 +64,7 @@ resource "aws_route" "internet_access" {
 #output "eip_id"{
 #  value = "aws_eip.instance.id"
 #  }
-resource "aws_eip_association" "eip_assoc" {
-  instance_id   = aws_instance.Dijango.id
-  allocation_id = "eipalloc-0b5e378e20899281c"
-}
+#resource "aws_eip_association" "eip_assoc" {
+#  instance_id   = aws_instance.Dijango.id
+#  allocation_id = "eipalloc-0b5e378e20899281c"
+#}
