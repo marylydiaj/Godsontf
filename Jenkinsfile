@@ -45,13 +45,6 @@ sed -i \"s/gods/$key/g\" /var/lib/jenkins/workspace/terragods/variables.tf
                 sleep 150
             }
         }
-        stage('terraform ip') {
-            steps {
-                sh label: '', script: '''pubIP=$(<publicip)
-                echo "$pubIP"
-                sleep 5
-            }
-        }
          stage('Application Deployment') {
             steps {
                 sh label: '', script: '''pubIP=$(<publicip)
