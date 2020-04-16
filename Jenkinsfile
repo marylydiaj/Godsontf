@@ -59,7 +59,7 @@ sed -i \"s/gods/$key/g\" /var/lib/jenkins/workspace/terragods/variables.tf
                 ssh -tt ec2-user@$pubIP
                 echo "yes"
                 sleep 5
-                checkout([$class: 'GitSCM', branches: [[name: '*/branchPy']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '7e261af1-1211-4b5a-9478-675cac127cce', url: 'https://github.com/GodsonSibreyan/Godsontf.git']]])
+                git clone -b branchPy git@github.com:GodsonSibreyan/Godsontf.git
                 sleep 5
                 cd Godsontf/
                 sudo python manage.py migrate
