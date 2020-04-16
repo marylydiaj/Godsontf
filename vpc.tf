@@ -66,5 +66,5 @@ resource "aws_route" "internet_access" {
 #  }
 resource "aws_eip_association" "eip_assoc" {
   instance_id   = aws_instance.Dijango.id
-  allocation_id = eipalloc-070e40050fbe51bea
+  allocation_id = "eipalloc-070e40050fbe51bea"
 }
