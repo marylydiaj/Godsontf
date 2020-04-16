@@ -8,7 +8,7 @@ resource "aws_instance" "Dijango" {
  user_data                   = data.template_file.dijango.rendered
  vpc_security_group_ids      = [aws_security_group.sg.id]
  subnet_id                   = aws_subnet.public_subnet.id
- associate_public_ip_address = true 
+ associate_id                = eipalloc-070e40050fbe51bea
  root_block_device {
    volume_type           = "gp2"
    volume_size           = "10"
