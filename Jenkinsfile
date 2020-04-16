@@ -18,13 +18,14 @@ pipeline {
         }
         stage('Parameters'){
             steps {
-                sh label: '', script: '''sed -i \\"s/user/$access_key/g\\" /var/lib/jenkins/workspace/terragods/variables.tf
-sed -i \\"s/password/$secret_key/g\\" /var/lib/jenkins/workspace/terragods/variables.tf
-sed -i \\"s/t2.micro/$instance_type/g\\" /var/lib/jenkins/workspace/terragods/variables.tf
-sed -i \\"s/10/$instance_size/g\\" /var/lib/jenkins/workspace/terragods/ec2.tf
-sed -i \\"s/us-east-2/$instance_region/g\\" /var/lib/jenkins/workspace/terragods/variables.tf
-sed -i \\"s/us-east-2a/$availability_zone/g\\" /var/lib/jenkins/workspace/terragods/variables.tf
-sed -i \\"s/gods/$key/g\\" /var/lib/jenkins/workspace/terragods/variables.tf'''
+                sh label: '', script: ''' sed -i \"s/user/$access_key/g\'" /var/lib/jenkins/workspace/terragods/variables.tf
+sed -i \"s/password/$secret_key/g\" /var/lib/jenkins/workspace/terragods/variables.tf
+sed -i \"s/t2.micro/$instance_type/g\" /var/lib/jenkins/workspace/terragods/variables.tf
+sed -i \"s/10/$instance_size/g\" /var/lib/jenkins/workspace/terragods/ec2.tf
+sed -i \"s/us-east-2/$instance_region/g\" /var/lib/jenkins/workspace/terragods/variables.tf
+sed -i \"s/us-east-2a/$availability_zone/g\" /var/lib/jenkins/workspace/terragods/variables.tf
+sed -i \"s/gods/$key/g\" /var/lib/jenkins/workspace/terragods/variables.tf
+'''
                   }
             }
             
