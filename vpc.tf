@@ -61,6 +61,6 @@ resource "aws_route" "internet_access" {
 #  vpc           = true
 #  depends_on    = [aws_internet_gateway.gw]
 #}
-output "eip_id"{
-  value = "aws_eip.instance.id"
-  }
+#output "eip_id"{
+#  value = "aws_eip.instance.id"
+#  }
