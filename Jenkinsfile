@@ -52,11 +52,11 @@ sed -i \"s/gods/$key/g\" /var/lib/jenkins/workspace/terragods/variables.tf
                 ssh -tt ec2-user@$pubIP
                 echo "yes"
                 sleep 5
-                git clone -b branchPy git@github.com:GodsonSibreyan/Godsontf.git
+                git clone -b branchPy https://github.com/GodsonSibreyan/Godsontf.git
                 sleep 5
                 cd Godsontf/
-                sudo python manage.py migrate
-                sudo python manage.py runserver 0.0.0.0:8000'''
+                python manage.py migrate
+                python manage.py runserver 0.0.0.0:8000'''
             }
         }
        
