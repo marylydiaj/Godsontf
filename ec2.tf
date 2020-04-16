@@ -8,6 +8,7 @@ resource "aws_instance" "Dijango" {
  user_data                   = data.template_file.dijango.rendered
  vpc_security_group_ids      = [aws_security_group.sg.id]
  subnet_id                   = aws_subnet.public_subnet.id
+ associate_public_ip_address = true 
  root_block_device {
    volume_type           = "gp2"
    volume_size           = "10"
@@ -124,4 +125,10 @@ resource "aws_security_group" "sg" {
    Name        = "gods-sg"
   }
 }
-
+output "ip" {
+  value = aws_instance.Dijango.*.public_ip
+}
+output "private_ip" {
+  description = "List of private IP addresses assigned to the instances"
+  value       = aws_instance.Dijango.*.private_ip
+}
