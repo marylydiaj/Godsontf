@@ -48,8 +48,9 @@ sed -i \"s/ami-0f7919c33c90f5b58/$Image/g\" /var/lib/jenkins/workspace/terragods
                 ssh -tt -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ec2-user@$pubIP /bin/bash << EOF
                 git clone -b branchPy https://github.com/GodsonSibreyan/Godsontf.git
                 cd Godsontf/
+                chmod 755 manage.py
                 python manage.py migrate
-                nohub python manage.py runserver 0.0.0.0:8000 &
+                nohup ./manage.py runserver 0.0.0.0:8000 &
                 EOF
                 '''
             }
