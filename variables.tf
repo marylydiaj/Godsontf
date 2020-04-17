@@ -17,12 +17,12 @@ variable "region" {
 
 variable "vpc_cidr" {
     description = "VPC cidr block"
-    default     = "10.3.0.0/16"
+    default     = "10.2.0.0/16"
 }
 
 variable "public_cidr" {
     description = "public subnet cidr block"
-    default     = "10.3.1.0/24"
+    default     = "10.2.1.0/24"
 }
 
 variable "subnet_zone" {
