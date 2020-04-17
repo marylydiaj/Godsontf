@@ -31,7 +31,7 @@ resource "aws_route_table" "public_route_table" {
 
 resource "aws_route" "public_route" {
   route_table_id  = aws_route_table.public_route_table.id
-  destination_cidr_block = "0.0.0.0/0"
+  destination_cidr_block = "11.0.1.0/22"
   nat_gateway_id = aws_internet_gateway.gw.id
 }
 
@@ -51,7 +51,7 @@ resource "aws_internet_gateway" "gw" {
 
 resource "aws_route" "internet_access" {
  route_table_id         = aws_vpc.vpc_name.main_route_table_id
- destination_cidr_block = "0.0.0.0/0"
+ destination_cidr_block = "11.0.1.0/22"
  gateway_id             = aws_internet_gateway.gw.id
 }
 
