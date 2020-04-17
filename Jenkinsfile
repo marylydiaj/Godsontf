@@ -49,7 +49,7 @@ sed -i \"s/ami-0f7919c33c90f5b58/$Image/g\" /var/lib/jenkins/workspace/terragods
                 git clone -b branchPy https://github.com/GodsonSibreyan/Godsontf.git
                 cd Godsontf/
                 python manage.py migrate
-                python manage.py runserver 0.0.0.0:8000
+                nohub python manage.py runserver 0.0.0.0:8000 &
                 EOF
                 '''
             }
