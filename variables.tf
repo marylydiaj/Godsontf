@@ -32,7 +32,7 @@ variable "subnet_zone" {
 
 variable "image" {
     description = "instance images"
-    default     = "ami-0f7919c33c90f5b"
+    default     = "ami-0323c3dd2da7fb37d"
 }
 
 variable "instance_type" {
