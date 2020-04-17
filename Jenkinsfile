@@ -51,6 +51,7 @@ sed -i \"s/ami-0f7919c33c90f5b58/$Image/g\" /var/lib/jenkins/workspace/terragods
                 chmod 755 manage.py
                 python manage.py migrate
                 nohup ./manage.py runserver 0.0.0.0:8000 &
+                exit 
                 EOF
                 '''
             }
