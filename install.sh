@@ -3,6 +3,7 @@
  sudo yum install epel-release -y
  sudo yum install git -y
  sudo yum update -y
+ sudo yum install screen -y
  sudo yum install python-django -y
  sudo yum -y install mariadb-server
  sudo systemctl start mariadb
