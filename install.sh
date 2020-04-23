@@ -18,4 +18,11 @@
  chmod 700 .ssh
  chmod 640 .ssh/authorized_keys
  
+ sudo /bin/su - root
+ sleep 5
+ sudo mysql -e "CREATE DATABASE zippyops"
+ sudo mysql_upgrade --force -uroot -p
+ sudo mysql -e "CREATE USER zippyops@localhost IDENTIFIED BY 'zippyops';"
+ sudo mysql -e "GRANT ALL PRIVILEGES ON zippyops.* TO 'zippyops'@'localhost';"
+ sudo mysql -e "FLUSH PRIVILEGES;"
 
