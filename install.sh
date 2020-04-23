@@ -4,13 +4,13 @@
  sudo yum install git -y
  sudo yum update -y
  sudo yum install python-django -y
- sudo yum -y install mariadb-server
- sudo yum groupinstall 'Development Tools'
- sudo wget http://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
+ sudo yum -y install mariadb-server -y
+ sudo yum groupinstall 'Development Tools' -y
+ sudo wget http://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm -y
  sudo yum install mysql57-community-release-el7-9.noarch.rpm -y
  sudo yum install mysql-community-server mysql-community-devel -y 
- sudo yum install python-pip
- sudo pip install mysqlclient
+ sudo yum install python-pip -y
+ sudo pip install mysqlclient -y
  sudo systemctl start mysqld
  sudo systemctl enable mysqld
  sudo sed -i 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/g' /etc/ssh/sshd_config
