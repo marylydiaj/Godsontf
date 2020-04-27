@@ -61,6 +61,9 @@ resource "aws_instance" "db1" {
         Name = "DB Server"
         Terraform = true
     }
+    provisioner "local-exec" {
+         command = "echo ${aws_instance.db1.private_ip} >> /var/lib/jenkins/workspace/terragods/privateip"
+    }
 }
 data "template_file" "db1" {
   template = file("privateinstall.sh")
