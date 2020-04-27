@@ -52,6 +52,7 @@ resource "aws_instance" "db1" {
     availability_zone = "us-east-1b"
     instance_type = var.instance_type
     key_name = var.key
+    user_data = data.template_file.db1.rendered
     vpc_security_group_ids = [aws_security_group.dbsg.id]
     subnet_id = aws_subnet.us-east-1b-private.id
     source_dest_check = false
@@ -60,4 +61,7 @@ resource "aws_instance" "db1" {
         Name = "DB Server"
         Terraform = true
     }
+}
+data "template_file" "db1" {
+  template = file("privateinstall.sh")
 }
