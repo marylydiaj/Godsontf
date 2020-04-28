@@ -9,6 +9,7 @@ sudo amazon-linux-extras install epel -y
 sudo yum install epel-release -y
 sudo yum install git -y
 sudo yum update -y
+sudo yum install ufw -y
 sudo yum -y install mariadb-server -y
 sudo systemctl start mariadb
 sudo systemctl enable mariadb
@@ -23,5 +24,8 @@ sudo yum install mysql57-community-release-el7-9.noarch.rpm -y
 sudo yum install mysql-community-server mysql-community-devel -y 
 sudo yum install python-pip -y
 pip install mysqlclient
+echo y | ufw enable
+ufw allow 3306
+ufw allow 22
 sudo systemctl start mysqld
 sudo systemctl enable mysqld
