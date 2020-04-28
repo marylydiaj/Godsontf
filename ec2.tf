@@ -92,7 +92,7 @@ data "template_file" "web1" {
   template = file("install.sh")
 }
 
-resource "aws_eip" "web1" {
-    instance = aws_instance.web1.id
-    vpc = true
-}
+#resource "aws_eip" "web1" {
+#    instance = aws_instance.web1.id
+#    vpc = true
+#}
