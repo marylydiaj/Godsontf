@@ -55,13 +55,13 @@ resource "aws_security_group" "dbsg" {
     from_port   = 3306
     to_port     = 3306
     protocol    = "TCP"
-    cidr_blocks = ["10.0.2.0/24"]
+    cidr_blocks = ["10.0.0.0/24"]
   }
   egress {
     from_port   = 3306
     to_port     = 3306
     protocol    = "tcp"
-    cidr_blocks = ["10.0.2.0/24"]
+    cidr_blocks = ["10.0.0.0/24"]
   }
   tags = {
     Name = "sg"
