@@ -2,6 +2,7 @@ resource "aws_launch_configuration" "LC" {
   image_id = var.image
   instance_type = var.instance_type
   security_groups = [ aws_security_group.LCSG.id ]
+  iam_instance_profile = aws_iam_instance_profile.test_profile.name
   key_name = var.key
   associate_public_ip_address = true
   user_data = data.template_file.LC.rendered
