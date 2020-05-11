@@ -189,3 +189,6 @@ resource "aws_iam_role_policy" "test_policy" {
 }
 EOF
 }
+output "lb_address" {
+  value = aws_alb.alb.public_dns
+}
