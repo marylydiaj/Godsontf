@@ -91,7 +91,10 @@ resource "aws_lb" "alb" {
   idle_timeout    = 60   
   tags = {    
     Name    = "alb"    
-  }   
+  }  
+  provisioner "local-exec" {
+    command = "echo ${aws_alb.alb.public_dns} >> /var/lib/jenkins/workspace/Django_2/alb"
+}
 }
 
 resource "aws_lb_target_group" "alb_target_group" {  
