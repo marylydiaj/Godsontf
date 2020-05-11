@@ -118,7 +118,7 @@ resource "aws_lb_target_group" "alb_target_group" {
 
 resource "aws_lb_target_group_attachment" "tga" {
   target_group_arn = aws_lb_target_group.alb_target_group.arn
-  target_id        = ["aws_instance.Appserver1.id", "aws_instance.Appserver2.id"]
+  target_id        = [aws_instance.Appserver1.id, aws_instance.Appserver2.id]
   port             = 8000
 }
 
