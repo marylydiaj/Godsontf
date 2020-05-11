@@ -27,7 +27,18 @@ sudo systemctl enable mysqld
 cd /home/ec2-user
 git clone -b branchPy https://github.com/GodsonSibreyan/Godsontf.git
 cd /home/ec2-user/Godsontf
-mysql --defaults-extra-file=mysql -h $RDS zippyops < zippyops.sql
+
+
+endpoint=`aws rds --region us-east-1 describe-db-instances --query "DBInstances[*].Endpoint.Address"`
+echo >file $endpoint
+sed -i 's/[][]//g' /home/ec2-user/Godsontf/file
+sed -i 's/"//g' /home/ec2-user/Godsontf/file
+sed -i 's/ //g' /home/ec2-user/Godsontf/file
+endpoint=$(<file)
+echo $endpoint
+
+sed -i "s/localhost/$endpoint/g" /home/ec2-user/Godsontf/python_webapp_django/settings.py
+mysql --defaults-extra-file=mysql -h $endpoint zippyops < zippyops.sql
 chmod 755 manage.py
 python manage.py migrate
 nohup ./manage.py runserver 0.0.0.0:8000 &
