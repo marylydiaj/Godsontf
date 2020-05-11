@@ -28,6 +28,7 @@ resource "aws_instance" "Appserver1" {
 ami = var.image
 instance_type = var.instance_type
 subnet_id = aws_subnet.Publicsubnet1.id
+iam_instance_profile = aws_iam_instance_profile.test_profile.name
 key_name = var.key
 user_data = data.template_file.Appserver1.rendered
 get_password_data = "false"
@@ -54,6 +55,7 @@ resource "aws_instance" "Appserver2" {
 ami = var.image
 instance_type = var.instance_type
 subnet_id = aws_subnet.Publicsubnet2.id
+iam_instance_profile = aws_iam_instance_profile.test_profile.name
 key_name = var.key
 user_data = data.template_file.Appserver2.rendered
 get_password_data = "false"
