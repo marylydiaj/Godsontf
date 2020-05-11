@@ -246,7 +246,7 @@ tags = {
 }
 
 resource "aws_db_subnet_group" "DBSubnetgroup" {
-name = "rdssg"
+name = "rdssg2"
 subnet_ids = [aws_subnet.Publicsubnet1.id, aws_subnet.Publicsubnet2.id, aws_subnet.Privatesubnet1.id,aws_subnet.Privatesubnet2.id] 
 
 tags = {
